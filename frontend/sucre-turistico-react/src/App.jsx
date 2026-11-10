@@ -7,8 +7,8 @@ import Register from "./pages/Register";
 import DashboardTurista from "./pages/DashboardTurista";
 import DashboardPropietario from "./pages/DashboardPropietario";
 
-const GATEWAY = "http://localhost:3000";
-const BUSCADOR = "http://localhost:3006";
+const GATEWAY = import.meta.env.VITE_API_URL || "http://localhost:3000";
+const BUSCADOR = `${GATEWAY}/api/buscar`;
 
 const categorias = [
   { nombre: "Destinos", descripcion: "Playas, islas y lugares turísticos", endpoint: "/api/destinos", ruta: "/destinos" },

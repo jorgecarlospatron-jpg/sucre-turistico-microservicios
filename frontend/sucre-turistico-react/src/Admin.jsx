@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./Admin.css";
 import { obtenerToken } from "./services/authService";
 
-const API = "http://localhost:3000";
+const API = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
 const modulos = {
   destinos: {

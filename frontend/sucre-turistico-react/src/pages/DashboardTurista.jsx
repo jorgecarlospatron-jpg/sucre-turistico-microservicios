@@ -5,7 +5,7 @@ import { useAuth } from "../context/AuthContext";
 import { obtenerToken } from "../services/authService";
 import "./Dashboard.css";
 
-const API = "http://localhost:3000";
+const API = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
 function obtenerFechaLocal() {
   const fecha = new Date();
