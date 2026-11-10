@@ -1,0 +1,1313 @@
+
+/* =========================================
+   MEJORAS VISUALES DEL PANEL
+========================================= */
+
+.dashboard-main {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.dashboard-section > h2,
+.dashboard-section h2 {
+  color: #123f42;
+  font-weight: 750;
+  letter-spacing: -.3px;
+}
+
+.dashboard-section > p {
+  color: #718087;
+}
+
+.dashboard .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 22px;
+  align-items: stretch;
+  margin-top: 18px;
+}
+
+.dashboard .card {
+  min-width: 0;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #e5ece9;
+  border-radius: 16px;
+  box-shadow: 0 5px 18px rgba(16,62,67,.07);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.dashboard .card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(16,62,67,.12);
+}
+
+.dashboard .card > img {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  background: #e8efed;
+}
+
+.dashboard .card > div {
+  padding: 18px;
+}
+
+.dashboard .card h3 {
+  color: #183b40;
+  margin: 12px 0 8px;
+  overflow-wrap: anywhere;
+}
+
+.dashboard .card p {
+  color: #687b7b;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.dashboard .card strong {
+  color: #24494b;
+}
+
+.dashboard .tag {
+  display: inline-flex;
+  width: fit-content;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #fff1e9;
+  color: #d95729;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .4px;
+}
+
+.dashboard button {
+  transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.dashboard button:hover {
+  transform: translateY(-1px);
+}
+
+.dashboard button:focus-visible,
+.dashboard input:focus-visible,
+.dashboard textarea:focus-visible,
+.dashboard select:focus-visible {
+  outline: 3px solid rgba(237,105,56,.22);
+  outline-offset: 2px;
+}
+
+.dashboard .admin {
+  border: 0;
+  border-radius: 9px;
+  padding: 11px 16px;
+  background: #ed6938;
+  color: #fff;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.dashboard .admin:hover {
+  background: #d95729;
+}
+
+.dashboard .admin:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.dashboard-empty {
+  border-radius: 16px;
+  box-shadow: 0 5px 18px rgba(16,62,67,.05);
+}
+
+.dashboard-stats article {
+  box-shadow: 0 5px 18px rgba(16,62,67,.05);
+  transition: transform .2s ease;
+}
+
+.dashboard-stats article:hover {
+  transform: translateY(-2px);
+}
+
+.form-habitacion {
+  border: 1px solid #e5ece9;
+  box-shadow: 0 8px 24px rgba(16,62,67,.07);
+}
+
+.imagen-ayuda {
+  margin: -4px 0 8px;
+  color: #718087;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.imagen-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 12px;
+  border: 1px dashed #cbdad5;
+  border-radius: 10px;
+  background: #f8fbfa;
+}
+
+.imagen-preview span {
+  color: #45615e;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.imagen-preview img {
+  width: 100%;
+  max-width: 420px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #e8efed;
+}
+
+@media (max-width: 800px) {
+  .dashboard-main {
+    padding: 22px;
+  }
+
+  .dashboard .grid {
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  }
+}
+
+@media (max-width: 550px) {
+  .dashboard-main {
+    padding: 16px;
+  }
+
+  .dashboard-header {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 24px;
+  }
+
+  .dashboard-welcome {
+    padding: 24px;
+  }
+
+  .dashboard-welcome h2 {
+    font-size: 23px;
+  }
+
+  .dashboard .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard .card > img {
+    height: 210px;
+  }
+}
+
+/* =========================================
+   CORRECCIÓN Y AISLAMIENTO DEL DASHBOARD
+========================================= */
+
+.dashboard {
+  width: 100%;
+  min-height: 100vh;
+  display: flex !important;
+  background: #f5f7f6 !important;
+  color: #183b40;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-sidebar {
+  width: 245px !important;
+  min-width: 245px;
+  flex-shrink: 0;
+  display: flex !important;
+  flex-direction: column !important;
+  background: #103e43 !important;
+  color: white !important;
+  padding: 28px 20px !important;
+}
+
+.dashboard-sidebar nav {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px;
+  margin-top: 45px;
+}
+
+.dashboard-sidebar nav a {
+  display: block;
+  color: #e0eeeb !important;
+  padding: 13px !important;
+  border-radius: 8px;
+  text-decoration: none !important;
+}
+
+.dashboard-sidebar nav a:hover {
+  background: #216269 !important;
+}
+
+.dashboard-main {
+  flex: 1;
+  min-width: 0;
+  padding: 35px !important;
+  background: #f5f7f6;
+}
+
+.dashboard .grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) !important;
+  gap: 22px !important;
+}
+
+.dashboard .card {
+  background: white !important;
+  border: 1px solid #e5ece9 !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+  box-shadow: 0 5px 18px rgba(16, 62, 67, .07) !important;
+}
+
+.dashboard .card > img {
+  display: block;
+  width: 100% !important;
+  height: 190px !important;
+  object-fit: cover !important;
+}
+
+.dashboard .card > div {
+  padding: 18px !important;
+}
+
+.dashboard .card h3 {
+  font-size: 19px;
+  color: #183b40;
+}
+
+.dashboard .card p {
+  color: #687b7b;
+  line-height: 1.5;
+}
+
+.dashboard .admin {
+  background: #ed6938 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 9px !important;
+  padding: 11px 16px !important;
+  cursor: pointer;
+}
+
+.dashboard-stats {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+}
+
+.dashboard-stats article {
+  background: white !important;
+  border: 1px solid #e5ece9;
+  border-radius: 14px;
+  padding: 23px;
+}
+
+@media (max-width: 800px) {
+  .dashboard-sidebar {
+    width: 175px !important;
+    min-width: 175px;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 550px) {
+  .dashboard {
+    flex-direction: column !important;
+  }
+
+  .dashboard-sidebar {
+    width: 100% !important;
+    min-width: 0;
+  }
+
+  .dashboard-main {
+    padding: 18px !important;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* =========================================
+   REDISEÑO DEL PORTAL DEL TURISTA
+========================================= */
+
+.turista-dashboard {
+  background: #f4f8f7;
+  color: #173d40;
+}
+
+/* BARRA LATERAL */
+
+.turista-dashboard .dashboard-sidebar {
+  background: #103e43;
+  width: 250px;
+  padding: 30px 22px;
+  box-shadow: 4px 0 20px rgba(0,0,0,.06);
+}
+
+.turista-dashboard .dashboard-sidebar h2 {
+  font-size: 23px;
+  margin-bottom: 8px;
+}
+
+.turista-dashboard .dashboard-sidebar > p {
+  color: #a8cbc5;
+  letter-spacing: 1.5px;
+}
+
+.turista-dashboard .dashboard-sidebar nav {
+  margin-top: 55px;
+  gap: 12px;
+}
+
+.turista-dashboard .dashboard-sidebar nav a {
+  padding: 14px;
+  border-radius: 10px;
+  color: #e3f1ee;
+  transition: .2s;
+}
+
+.turista-dashboard .dashboard-sidebar nav a:hover {
+  background: #216269;
+  transform: translateX(4px);
+}
+
+.turista-dashboard .dashboard-sidebar button {
+  margin-top: auto;
+  background: #e96937;
+  border: none;
+  padding: 13px;
+  font-weight: bold;
+}
+
+.turista-dashboard .dashboard-sidebar button:hover {
+  background: #cf5128;
+}
+
+/* CONTENIDO PRINCIPAL */
+
+.turista-dashboard .dashboard-main {
+  padding: 38px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.turista-dashboard .dashboard-header {
+  margin-bottom: 28px;
+}
+
+.turista-dashboard .dashboard-header span {
+  color: #078477;
+  letter-spacing: 2px;
+}
+
+.turista-dashboard .dashboard-header h1 {
+  font-size: 32px;
+  color: #173d40;
+}
+
+.turista-dashboard .dashboard-header p {
+  color: #718087;
+}
+
+.turista-dashboard .dashboard-avatar {
+  background: #078477;
+  width: 58px;
+  height: 58px;
+  box-shadow: 0 5px 15px #07847730;
+}
+
+/* BIENVENIDA */
+
+.turista-dashboard .dashboard-welcome {
+  min-height: 240px;
+  padding: 40px;
+  border-radius: 20px;
+  background:
+    linear-gradient(90deg, rgba(10,65,67,.95), rgba(8,132,119,.65)),
+    url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e")
+    center/cover;
+  box-shadow: 0 10px 30px rgba(0,0,0,.10);
+}
+
+.turista-dashboard .dashboard-welcome h2 {
+  font-size: 30px;
+}
+
+.turista-dashboard .dashboard-welcome a {
+  border-radius: 9px;
+  padding: 13px 20px;
+  transition: .2s;
+}
+
+.turista-dashboard .dashboard-welcome a:hover {
+  transform: translateY(-3px);
+  background: #e9f7f3;
+}
+
+/* ESTADÍSTICAS */
+
+.turista-dashboard .dashboard-stats {
+  gap: 22px;
+  margin: 30px 0;
+}
+
+.turista-dashboard .dashboard-stats article {
+  border: 1px solid #e5eeeb;
+  border-radius: 17px;
+  padding: 26px;
+  box-shadow: 0 5px 18px rgba(20,60,55,.05);
+  transition: .2s;
+}
+
+.turista-dashboard .dashboard-stats article:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(20,60,55,.09);
+}
+
+.turista-dashboard .dashboard-stats article > span {
+  color: #078477;
+  font-size: 27px;
+}
+
+.turista-dashboard .dashboard-stats strong {
+  color: #078477;
+  font-size: 32px;
+}
+
+/* SECCIONES */
+
+.turista-dashboard .dashboard-section {
+  margin-top: 42px;
+}
+
+.turista-dashboard .dashboard-section > h2 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.turista-dashboard .dashboard-section > p {
+  color: #718087;
+  margin-bottom: 22px;
+}
+
+/* TARJETAS */
+
+.turista-dashboard .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 23px;
+}
+
+.turista-dashboard .card {
+  border: 1px solid #e5eeeb;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 5px 18px rgba(20,60,55,.06);
+  transition: transform .25s, box-shadow .25s;
+}
+
+.turista-dashboard .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(20,60,55,.12);
+}
+
+.turista-dashboard .card img {
+  width: 100%;
+  height: 205px;
+  object-fit: cover;
+}
+
+.turista-dashboard .card div {
+  padding: 21px;
+}
+
+.turista-dashboard .card h3 {
+  color: #173d40;
+  font-size: 19px;
+}
+
+.turista-dashboard .card p {
+  color: #718087;
+  line-height: 1.5;
+}
+
+.turista-dashboard .card strong {
+  display: block;
+  color: #078477;
+  margin: 12px 0;
+}
+
+/* BOTONES */
+
+.turista-dashboard .admin,
+.turista-dashboard .card button {
+  background: #e96937;
+  color: white;
+  border: none;
+  border-radius: 9px;
+  padding: 12px 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.turista-dashboard .admin:hover,
+.turista-dashboard .card button:hover {
+  background: #cf5128;
+  transform: translateY(-2px);
+}
+
+/* FORMULARIO DE RESERVA */
+
+.turista-dashboard .form-habitacion {
+  max-width: 750px;
+  padding: 30px;
+  border: 1px solid #e5eeeb;
+  border-radius: 17px;
+  box-shadow: 0 5px 20px rgba(20,60,55,.06);
+}
+
+.turista-dashboard .form-habitacion input,
+.turista-dashboard .form-habitacion textarea {
+  background: #f9fbfa;
+  border-radius: 9px;
+}
+
+.turista-dashboard .profile-card {
+  border-radius: 15px;
+  border: 1px solid #e5eeeb;
+  box-shadow: 0 4px 15px rgba(20,60,55,.04);
+}
+
+/* ESTADOS VACÍOS */
+
+.turista-dashboard .dashboard-empty {
+  border-radius: 16px;
+  padding: 45px 20px;
+  border: 1px dashed #b9d3cc;
+  background: white;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 800px) {
+  .turista-dashboard .dashboard-main {
+    padding: 22px;
+  }
+
+  .turista-dashboard .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .turista-dashboard .dashboard-welcome {
+    padding: 28px;
+  }
+}
+
+@media(max-width: 550px) {
+  .turista-dashboard {
+    flex-direction: column;
+  }
+
+  .turista-dashboard .dashboard-sidebar {
+    width: 100%;
+  }
+
+  .turista-dashboard .dashboard-sidebar nav {
+    margin-top: 20px;
+  }
+
+  .turista-dashboard .dashboard-main {
+    padding: 18px;
+  }
+
+  .turista-dashboard .dashboard-header h1 {
+    font-size: 25px;
+  }
+}
+
+/* CORRECCIÓN DEL BANNER DEL TURISTA */
+
+.turista-dashboard .dashboard-welcome {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8,55,57,.90),
+      rgba(8,132,119,.72)
+    ),
+    url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e")
+    center/cover;
+}
+
+.turista-dashboard .dashboard-welcome span {
+  color: #c9f5e9;
+  font-weight: 800;
+}
+
+.turista-dashboard .dashboard-welcome h2 {
+  color: white;
+}
+
+.turista-dashboard .dashboard-welcome p {
+  color: #f0fffb;
+}
+
+.turista-dashboard .dashboard-welcome a {
+  display: inline-block;
+  background: #e96937;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.turista-dashboard .dashboard-welcome a:hover {
+  background: #cf5128;
+}
+
+.turista-dashboard .dashboard-welcome > div {
+  position: relative;
+  z-index: 1;
+}
+
+/* AVATAR DEL TURISTA */
+
+.turista-dashboard .dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.turista-dashboard .dashboard-avatar {
+  width: 58px !important;
+  height: 58px !important;
+  min-width: 58px;
+  border-radius: 50% !important;
+  display: grid !important;
+  place-items: center !important;
+  background: #078477 !important;
+  color: #ffffff !important;
+  font-size: 25px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  padding: 0 !important;
+  flex-shrink: 0;
+  box-shadow: 0 5px 15px rgba(7,132,119,.25);
+}
+
+/* =========================================
+   FORMULARIO DE RESERVA - REDISEÑO
+========================================= */
+
+.turista-dashboard #formulario-reserva {
+  max-width: 950px;
+  margin: 45px auto;
+}
+
+.turista-dashboard #formulario-reserva > h2 {
+  font-size: 28px;
+  color: #173d40;
+  margin-bottom: 22px;
+}
+
+.turista-dashboard #formulario-reserva .profile-card {
+  width: 100%;
+  padding: 25px;
+  margin-bottom: 15px;
+  background: white;
+  border: 1px solid #e2ece8;
+  border-radius: 15px;
+  box-shadow: 0 5px 18px rgba(20,60,55,.05);
+}
+
+.turista-dashboard #formulario-reserva .profile-card h3 {
+  font-size: 21px;
+  color: #078477;
+  margin-bottom: 12px;
+}
+
+.turista-dashboard #formulario-reserva .profile-card p {
+  color: #647775;
+  margin: 9px 0;
+}
+
+/* FORMULARIO */
+
+.turista-dashboard #formulario-reserva .form-habitacion {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 13px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 30px;
+  background: white;
+  border: 1px solid #e2ece8;
+  border-radius: 15px;
+  box-shadow: 0 5px 18px rgba(20,60,55,.05);
+}
+
+.turista-dashboard #formulario-reserva .form-habitacion label {
+  display: block !important;
+  width: 100%;
+  margin: 8px 0 0;
+  color: #28484d;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.turista-dashboard #formulario-reserva .form-habitacion input,
+.turista-dashboard #formulario-reserva .form-habitacion textarea {
+  display: block;
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 14px;
+  margin: 0;
+  border: 1px solid #dce5e6;
+  border-radius: 9px;
+  background: #f9fbfa;
+  color: #173d40;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+.turista-dashboard #formulario-reserva .form-habitacion textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.turista-dashboard #formulario-reserva .form-habitacion input:focus,
+.turista-dashboard #formulario-reserva .form-habitacion textarea:focus {
+  outline: none;
+  border-color: #078477;
+  box-shadow: 0 0 0 3px rgba(7,132,119,.12);
+}
+
+/* DISPONIBILIDAD Y PRECIO */
+
+.turista-dashboard #formulario-reserva .form-habitacion .profile-card {
+  margin: 10px 0;
+  background: #f5faf8;
+  box-shadow: none;
+}
+
+.turista-dashboard #formulario-reserva .form-habitacion .profile-card h3 {
+  color: #173d40;
+}
+
+.turista-dashboard #formulario-reserva .form-habitacion .auth-success {
+  color: #087f45;
+  background: #e9f8ef;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.turista-dashboard #formulario-reserva .form-habitacion .auth-error {
+  color: #b42318;
+  background: #fef3f2;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+/* BOTONES */
+
+.turista-dashboard #formulario-reserva .form-habitacion button {
+  width: 100%;
+  min-height: 47px;
+  padding: 13px 18px;
+  margin: 5px 0 0;
+  border: none;
+  border-radius: 9px;
+  background: #e96937;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.turista-dashboard #formulario-reserva .form-habitacion button:hover:not(:disabled) {
+  background: #cf5128;
+  transform: translateY(-2px);
+}
+
+.turista-dashboard #formulario-reserva .form-habitacion button:disabled {
+  background: #bdc9c6;
+  color: white;
+  cursor: not-allowed;
+  opacity: .8;
+}
+
+@media(max-width: 600px) {
+  .turista-dashboard #formulario-reserva .form-habitacion {
+    padding: 20px;
+  }
+}
+
+/* =========================================
+   PORTAL DEL PROPIETARIO - REDISEÑO VISUAL
+========================================= */
+
+.propietario-dashboard {
+  background: #f4f8f7 !important;
+  color: #173d40;
+}
+
+.propietario-dashboard .dashboard-sidebar {
+  width: 250px !important;
+  min-width: 250px !important;
+  padding: 30px 22px !important;
+  background: #103e43 !important;
+  box-shadow: 4px 0 20px rgba(0,0,0,.06);
+}
+
+.propietario-dashboard .dashboard-sidebar h2 {
+  color: #fff;
+  font-size: 23px;
+  margin: 0 0 8px;
+}
+
+.propietario-dashboard .dashboard-sidebar > p {
+  color: #a8cbc5;
+  letter-spacing: 1.4px;
+  font-size: 12px;
+}
+
+.propietario-dashboard .dashboard-sidebar nav {
+  margin-top: 48px;
+  gap: 12px;
+}
+
+.propietario-dashboard .dashboard-sidebar nav a {
+  padding: 14px !important;
+  border-radius: 10px;
+  color: #e3f1ee !important;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.propietario-dashboard .dashboard-sidebar nav a:hover {
+  background: #216269 !important;
+  transform: translateX(4px);
+}
+
+.propietario-dashboard .dashboard-sidebar > button {
+  margin-top: auto;
+  width: 100%;
+  border: 0;
+  border-radius: 9px;
+  padding: 13px;
+  background: #e96937;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.propietario-dashboard .dashboard-sidebar > button:hover {
+  background: #cf5128;
+}
+
+.propietario-dashboard .dashboard-main {
+  max-width: 1600px;
+  padding: 38px !important;
+  margin: 0 auto;
+  background: #f4f8f7;
+}
+
+.propietario-dashboard .dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.propietario-dashboard .dashboard-header > div:first-child {
+  min-width: 0;
+}
+
+.propietario-dashboard .dashboard-header span {
+  color: #078477;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.propietario-dashboard .dashboard-header h1 {
+  margin: 10px 0;
+  color: #173d40;
+  font-size: 32px;
+}
+
+.propietario-dashboard .dashboard-header p {
+  color: #718087;
+  margin: 0;
+}
+
+.propietario-dashboard .dashboard-header > button.admin {
+  margin-left: auto;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 9px;
+  padding: 12px 17px;
+  background: #ed6938 !important;
+  color: #fff !important;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.propietario-dashboard .dashboard-header > button.admin:hover {
+  background: #cf5128 !important;
+}
+
+.propietario-dashboard .dashboard-avatar {
+  width: 58px !important;
+  height: 58px !important;
+  min-width: 58px;
+  border-radius: 50% !important;
+  display: grid !important;
+  place-items: center !important;
+  padding: 0 !important;
+  flex-shrink: 0;
+  background: #078477 !important;
+  color: #fff !important;
+  font-size: 25px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  box-shadow: 0 5px 15px rgba(7,132,119,.25);
+}
+
+.propietario-dashboard .dashboard-welcome {
+  position: relative;
+  min-height: 235px;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  overflow: hidden;
+  border-radius: 20px;
+  background:
+    linear-gradient(90deg, rgba(8,55,57,.91), rgba(8,132,119,.70)),
+    url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e")
+    center/cover;
+  box-shadow: 0 10px 30px rgba(0,0,0,.10);
+}
+
+.propietario-dashboard .dashboard-welcome > div {
+  position: relative;
+  z-index: 1;
+}
+
+.propietario-dashboard .dashboard-welcome span {
+  color: #c9f5e9;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.propietario-dashboard .dashboard-welcome h2 {
+  color: #fff;
+  font-size: 30px;
+  margin: 16px 0;
+}
+
+.propietario-dashboard .dashboard-welcome p {
+  color: #f0fffb;
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+.propietario-dashboard .dashboard-section {
+  margin-top: 38px;
+}
+
+.propietario-dashboard .dashboard-section h2 {
+  color: #173d40;
+  font-size: 25px;
+}
+
+.propietario-dashboard .dashboard-section > p {
+  color: #718087;
+}
+
+.propietario-dashboard .dashboard-stats {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 22px !important;
+  margin: 30px 0;
+}
+
+.propietario-dashboard .dashboard-stats article {
+  min-width: 0;
+  padding: 26px !important;
+  background: #fff !important;
+  border: 1px solid #e5eeeb !important;
+  border-radius: 17px !important;
+  box-shadow: 0 5px 18px rgba(20,60,55,.05) !important;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.propietario-dashboard .dashboard-stats article:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(20,60,55,.09) !important;
+}
+
+.propietario-dashboard .dashboard-stats article > span {
+  color: #078477;
+  font-size: 27px;
+}
+
+.propietario-dashboard .dashboard-stats article h3 {
+  color: #173d40;
+  margin: 13px 0 8px;
+}
+
+.propietario-dashboard .dashboard-stats article strong {
+  display: block;
+  color: #078477;
+  font-size: 32px;
+  margin: 8px 0;
+}
+
+.propietario-dashboard .dashboard-stats article p {
+  color: #718087;
+}
+
+.propietario-dashboard .grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) !important;
+  gap: 23px !important;
+  align-items: stretch;
+  margin-top: 18px;
+}
+
+.propietario-dashboard .card {
+  min-width: 0;
+  overflow: hidden;
+  background: #fff !important;
+  border: 1px solid #e5eeeb !important;
+  border-radius: 16px !important;
+  box-shadow: 0 5px 18px rgba(20,60,55,.06) !important;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.propietario-dashboard .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(20,60,55,.12) !important;
+}
+
+.propietario-dashboard .card > img {
+  display: block;
+  width: 100%;
+  height: 205px;
+  object-fit: cover;
+  background: #e8efed;
+}
+
+.propietario-dashboard .card > div {
+  padding: 21px !important;
+}
+
+.propietario-dashboard .card h3 {
+  color: #173d40;
+  font-size: 19px;
+  overflow-wrap: anywhere;
+}
+
+.propietario-dashboard .card p {
+  color: #718087;
+  line-height: 1.5;
+}
+
+.propietario-dashboard .tag {
+  display: inline-flex;
+  width: fit-content;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #fff1e9;
+  color: #d95729;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .4px;
+}
+
+.propietario-dashboard button.admin,
+.propietario-dashboard .dashboard-section button {
+  border: 0;
+  border-radius: 9px;
+  padding: 11px 16px;
+  background: #ed6938;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.propietario-dashboard button.admin:hover,
+.propietario-dashboard .dashboard-section button:hover {
+  background: #cf5128;
+  transform: translateY(-1px);
+}
+
+.propietario-dashboard button:disabled {
+  opacity: .65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.propietario-dashboard .form-habitacion,
+.propietario-dashboard .profile-card {
+  border: 1px solid #e5eeeb;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 5px 18px rgba(20,60,55,.05);
+}
+
+.propietario-dashboard .form-habitacion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 28px;
+}
+
+.propietario-dashboard .form-habitacion label {
+  color: #28484d;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.propietario-dashboard .form-habitacion input,
+.propietario-dashboard .form-habitacion textarea,
+.propietario-dashboard .form-habitacion select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid #dce5e6;
+  border-radius: 9px;
+  background: #f9fbfa;
+  color: #173d40;
+  font: inherit;
+}
+
+.propietario-dashboard .form-habitacion input:focus,
+.propietario-dashboard .form-habitacion textarea:focus,
+.propietario-dashboard .form-habitacion select:focus {
+  outline: none;
+  border-color: #078477;
+  box-shadow: 0 0 0 3px rgba(7,132,119,.12);
+}
+
+.propietario-dashboard .imagen-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 12px;
+  border: 1px dashed #cbdad5;
+  border-radius: 10px;
+  background: #f8fbfa;
+}
+
+.propietario-dashboard .imagen-preview img {
+  width: 100%;
+  max-width: 420px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.propietario-dashboard .dashboard-empty {
+  padding: 40px 22px;
+  border: 1px dashed #b9d3cc;
+  border-radius: 16px;
+  background: #fff;
+  text-align: center;
+}
+
+.propietario-dashboard .dashboard-empty span {
+  font-size: 36px;
+}
+
+.propietario-dashboard #notificaciones {
+  scroll-margin-top: 25px;
+}
+
+@media (max-width: 900px) {
+  .propietario-dashboard .dashboard-main {
+    padding: 25px !important;
+  }
+
+  .propietario-dashboard .dashboard-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 650px) {
+  .propietario-dashboard {
+    flex-direction: column !important;
+  }
+
+  .propietario-dashboard .dashboard-sidebar {
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+  }
+
+  .propietario-dashboard .dashboard-sidebar nav {
+    margin-top: 20px;
+  }
+
+  .propietario-dashboard .dashboard-main {
+    padding: 18px !important;
+  }
+
+  .propietario-dashboard .dashboard-header {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .propietario-dashboard .dashboard-header h1 {
+    font-size: 25px;
+  }
+
+  .propietario-dashboard .dashboard-header > button.admin {
+    margin-left: 0;
+  }
+
+  .propietario-dashboard .dashboard-welcome {
+    min-height: 210px;
+    padding: 25px;
+  }
+
+  .propietario-dashboard .dashboard-welcome h2 {
+    font-size: 24px;
+  }
+
+  .propietario-dashboard .dashboard-stats {
+    grid-template-columns: 1fr !important;
+  }
+
+  .propietario-dashboard .grid {
+    grid-template-columns: 1fr !important;
+  }
+}

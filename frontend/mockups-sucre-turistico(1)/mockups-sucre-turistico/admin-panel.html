@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sucre Turístico — Panel de administración</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="admin">
+  <div class="sidebar">
+    <div class="brand">Golfo Sucre <span style="opacity:.6;font-size:.7rem;display:block;font-family:'IBM Plex Sans'">Admin</span></div>
+    <nav>
+      <a href="admin-panel.html" class="active">Panel principal</a>
+      <a href="admin-gestion.html#destinos">Destinos</a>
+      <a href="admin-gestion.html#alojamientos">Alojamientos</a>
+      <a href="admin-gestion.html#gastronomia">Gastronomía</a>
+      <a href="admin-gestion.html#experiencias">Experiencias</a>
+      <a href="admin-gestion.html#eventos">Eventos</a>
+      <a href="admin-gestion.html#experiencias">Experiencias</a>
+      <a href="admin-gestion.html#eventos">Eventos</a>
+      <a href="admin-gestion.html#categorias">Categorías</a>
+      <a href="inicio.html" style="margin-top:20px;opacity:.7">← Ver sitio público</a>
+    </nav>
+  </div>
+
+  <div class="content">
+    <div class="topbar">
+      <h2>Panel principal</h2>
+      <div>Admin: <strong>M. Torres</strong></div>
+    </div>
+    <div class="content-inner">
+      <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));margin-bottom:30px">
+        <div class="info-card"><span class="meta">Destinos activos</span><h2 style="margin-top:6px">24</h2></div>
+        <div class="info-card"><span class="meta">Alojamientos</span><h2 style="margin-top:6px">18</h2></div>
+        <div class="info-card"><span class="meta">Restaurantes</span><h2 style="margin-top:6px">15</h2></div>
+        <div class="info-card"><span class="meta">Eventos próximos</span><h2 style="margin-top:6px">3</h2></div>
+      </div>
+
+      <div class="section-head" style="padding:0"><h2 style="font-size:1.1rem">Últimas actualizaciones</h2></div>
+      <table class="table">
+        <tr><th>Elemento</th><th>Tipo</th><th>Actualizado</th><th>Estado</th><th></th></tr>
+        <tr><td>Santiago de Tolú</td><td>Destino</td><td>Hoy, 9:40 am</td><td>Publicado</td><td><a href="admin-gestion.html#destinos" class="btn btn-outline btn-sm">Editar</a></td></tr>
+        <tr><td>Hotel Bahía Tolú</td><td>Alojamiento</td><td>Ayer</td><td>Publicado</td><td><a href="admin-gestion.html#alojamientos" class="btn btn-outline btn-sm">Editar</a></td></tr>
+        <tr><td>Festival del Golfo</td><td>Evento</td><td>Hace 2 días</td><td>Borrador</td><td><a href="admin-gestion.html#eventos" class="btn btn-outline btn-sm">Editar</a></td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>

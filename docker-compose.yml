@@ -1,0 +1,149 @@
+
+services:
+  elasticsearch:
+    image: sucre-elasticsearch-respaldo:latest
+    container_name: sucre-elasticsearch
+    hostname: elasticsearch
+    restart: unless-stopped
+    environment:
+      - discovery.type=single-node
+      - network.host=0.0.0.0
+    ports:
+      - "9200:9200"
+
+  destinos:
+    build: ./backend/destinos-service
+    container_name: sucre-destinos
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    environment:
+      DB_HOST: host.docker.internal
+      DB_USER: root
+      DB_PASSWORD: ""
+      DB_NAME: sucre_turistico
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  alojamientos:
+    build: ./backend/alojamiento-service
+    container_name: sucre-alojamientos
+    restart: unless-stopped
+    ports:
+      - "3002:3002"
+    environment:
+      DB_HOST: host.docker.internal
+      DB_USER: root
+      DB_PASSWORD: ""
+      DB_NAME: sucre_turistico
+      JWT_SECRET: "CAMBIA_ESTA_CLAVE_POR_UNA_SECRETA_LARGA"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  gastronomia:
+    build: ./backend/gastronomia-service
+    container_name: sucre-gastronomia
+    restart: unless-stopped
+    ports:
+      - "3003:3003"
+    environment:
+      DB_HOST: host.docker.internal
+      DB_USER: root
+      DB_PASSWORD: ""
+      DB_NAME: sucre_turistico
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  experiencias:
+    build: ./backend/experiencias-service
+    container_name: sucre-experiencias
+    restart: unless-stopped
+    ports:
+      - "3004:3004"
+    environment:
+      DB_HOST: host.docker.internal
+      DB_USER: root
+      DB_PASSWORD: ""
+      DB_NAME: sucre_turistico
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  eventos:
+    build: ./backend/eventos-service
+    container_name: sucre-eventos
+    restart: unless-stopped
+    ports:
+      - "3005:3005"
+    environment:
+      DB_HOST: host.docker.internal
+      DB_USER: root
+      DB_PASSWORD: ""
+      DB_NAME: sucre_turistico
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  usuarios:
+    build: ./backend/usuarios-service
+    container_name: sucre-usuarios
+    restart: unless-stopped
+    ports:
+      - "3007:3007"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      DB_HOST: host.docker.internal
+      DB_USER: root
+      DB_PASSWORD: ""
+      DB_NAME: sucre_turistico
+      JWT_SECRET: "CAMBIA_ESTA_CLAVE_POR_UNA_SECRETA_LARGA"
+
+
+  reservas:
+    build: ./backend/reservas-service
+    container_name: sucre-reservas
+    restart: unless-stopped
+    ports:
+      - "3008:3008"
+    environment:
+      DB_HOST: host.docker.internal
+      DB_USER: root
+      DB_PASSWORD: ""
+      DB_NAME: sucre_turistico
+      JWT_SECRET: "CAMBIA_ESTA_CLAVE_POR_UNA_SECRETA_LARGA"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  buscador:
+    build: ./backend/buscador-service
+    container_name: sucre-buscador
+    restart: unless-stopped
+    ports:
+      - "3006:3006"
+    environment:
+      ELASTIC_URL: http://host.docker.internal:9200
+      API_GATEWAY_URL: http://api-gateway:3000
+
+  api-gateway:
+    build: ./backend/api-gateway
+    container_name: sucre-api-gateway
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      DESTINOS_URL: http://destinos:3001
+      ALOJAMIENTOS_URL: http://alojamientos:3002
+      GASTRONOMIA_URL: http://gastronomia:3003
+      EXPERIENCIAS_URL: http://experiencias:3004
+      EVENTOS_URL: http://eventos:3005
+      BUSCADOR_URL: http://buscador:3006
+      USUARIOS_URL: http://usuarios:3007
+      RESERVAS_URL: http://reservas:3008
+    depends_on:
+      - destinos
+      - alojamientos
+      - gastronomia
+      - experiencias
+      - eventos
+      - buscador
+      - usuarios
+      - reservas

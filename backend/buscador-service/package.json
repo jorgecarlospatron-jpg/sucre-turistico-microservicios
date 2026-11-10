@@ -1,0 +1,19 @@
+{
+  "name": "buscador-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+"scripts": {
+  "dev": "node server.js",
+  "start": "node server.js"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@elastic/elasticsearch": "^8.17.0",
+    "cors": "^2.8.6",
+    "express": "^5.3.0"
+  }
+}

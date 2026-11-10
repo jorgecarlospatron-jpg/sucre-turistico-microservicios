@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Sucre Turístico — Detalle</title>
+
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+<div class="nav">
+
+  <div class="brand">
+    Golfo Sucre
+  </div>
+
+  <div class="links">
+
+    <a href="inicio.html">Inicio</a>
+
+    <a href="destinos.html" class="active">
+      Destinos
+    </a>
+
+    <a href="alojamientos.html">
+      Hoteles
+    </a>
+
+    <a href="gastronomia.html">
+      Gastronomía
+    </a>
+
+    <a href="experiencias.html">
+      Experiencias
+    </a>
+
+    <a href="eventos.html">
+      Eventos
+    </a>
+
+    <a href="buscador.html">
+      Buscar
+    </a>
+
+  </div>
+
+  <a href="admin-panel.html" class="cta">
+    Panel Admin
+  </a>
+
+</div>
+
+
+<section class="section">
+
+  <a
+    href="destinos.html"
+    class="btn btn-outline"
+  >
+    ← Volver a destinos
+  </a>
+
+
+  <div
+    id="detalle"
+    style="margin-top:25px"
+  >
+
+    <p>
+      Cargando información del destino...
+    </p>
+
+  </div>
+
+</section>
+
+
+<div class="footer">
+
+  Sucre Turístico — Prototipo de interfaz · Electiva Profesional II
+
+</div>
+
+
+<script>
+
+const API = "http://localhost:3001/api/destinos";
+
+// Obtener ID de la URL
+const parametros = new URLSearchParams(
+  window.location.search
+);
+
+const id = parametros.get("id");
+
+
+// Imágenes
+function obtenerImagen(destino) {
+  return destino.imagen || "https://www.tolucaribe.com/sites/default/files/13268537_10154165426387145_1458918189470704475_o.jpg";
+}
+
+
+// Cargar detalle
+async function cargarDetalle() {
+
+  const contenedor =
+    document.getElementById("detalle");
+
+  if (!id) {
+
+    contenedor.innerHTML = `
+      <h2>Destino no especificado</h2>
+      <p>No se encontró el identificador del destino.</p>
+    `;
+
+    return;
+
+  }
+
+
+  try {
+
+    const response =
+      await fetch(`${API}/${id}`);
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        "Destino no encontrado"
+      );
+
+    }
+
+
+    const destino =
+      await response.json();
+
+
+    console.log(
+      "DESTINO RECIBIDO:",
+      destino
+    );
+
+
+    const imagen =
+      obtenerImagen(destino);
+
+
+    contenedor.innerHTML = `
+
+      <div style="
+        max-width:1000px;
+        margin:auto;
+      ">
+
+        <img
+          src="${imagen}"
+          alt="${destino.nombre}"
+          style="
+            width:100%;
+            max-height:500px;
+            object-fit:cover;
+            border-radius:15px;
+          "
+        >
+
+
+        <div style="
+          margin-top:25px;
+        ">
+
+          <span class="tag">
+            ${destino.tipo || "Destino"}
+          </span>
+
+
+          <h1 style="
+            margin-top:12px;
+            font-size:2.2rem;
+          ">
+            ${destino.nombre}
+          </h1>
+
+
+          <div class="meta" style="
+            margin-top:10px;
+            font-size:1rem;
+          ">
+            📍 ${destino.municipio}
+          </div>
+
+
+          <p style="
+            margin-top:20px;
+            font-size:1.1rem;
+            line-height:1.7;
+          ">
+            ${destino.descripcion || "Sin descripción disponible."}
+          </p>
+
+
+          <div style="
+            margin-top:30px;
+            padding:20px;
+            border-radius:12px;
+            background:#f5f5f5;
+          ">
+
+            <h3>
+              Información del destino
+            </h3>
+
+            <p>
+              <strong>Nombre:</strong>
+              ${destino.nombre}
+            </p>
+
+            <p>
+              <strong>Municipio:</strong>
+              ${destino.municipio}
+            </p>
+
+            <p>
+              <strong>Categoría:</strong>
+              ${destino.tipo || "No especificada"}
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    `;
+
+
+    document.title =
+      `Sucre Turístico — ${destino.nombre}`;
+
+
+  } catch (error) {
+
+    console.error(
+      "Error:",
+      error
+    );
+
+
+    contenedor.innerHTML = `
+
+      <h2>
+        No se pudo cargar el destino
+      </h2>
+
+      <p>
+        Verifica que el microservicio de destinos
+        esté ejecutándose en el puerto 3001.
+      </p>
+
+    `;
+
+  }
+
+}
+
+
+cargarDetalle();
+
+</script>
+
+</body>
+
+</html>

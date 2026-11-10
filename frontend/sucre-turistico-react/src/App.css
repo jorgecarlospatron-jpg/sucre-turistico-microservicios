@@ -1,0 +1,486 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 4%;
+  background: white;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.navbar div {
+  display: flex;
+  gap: 25px;
+}
+
+.admin, .search button {
+  background: #e96937;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 40px;
+  align-items: center;
+  padding: 45px 4%;
+}
+
+.hero h1 {
+  font-size: 45px;
+}
+
+.hero img {
+  width: 100%;
+  height: 430px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.search {
+  display: flex;
+  margin-top: 25px;
+}
+
+.search input {
+  padding: 15px;
+  flex: 1;
+  min-width: 0;
+  border: 1px solid #ddd;
+}
+
+.section {
+  padding: 45px 4%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 9px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px #00000012;
+}
+
+.card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.card div {
+  padding: 15px;
+}
+
+.categories {
+  background: #dcece5;
+}
+
+footer {
+  padding: 30px;
+  text-align: center;
+  background: #173d36;
+  color: white;
+}
+
+@media (max-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar {
+    flex-direction: column;
+  }
+}
+
+.category-card {
+  background: white;
+  border: none;
+  border-radius: 9px;
+  padding: 25px;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 3px 12px #00000012;
+  transition: transform 0.2s, box-shadow 0.2s;
+  color: #173d36;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px #00000020;
+}
+
+.category-card h3 {
+  font-size: 21px;
+}
+
+.category-card span {
+  color: #e96937;
+  font-weight: bold;
+}
+
+.tag {
+  display: inline-block;
+  color: #e96937;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.section-heading button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 5px;
+  background: #173d36;
+  color: white;
+  cursor: pointer;
+}
+
+.error {
+  color: #b42318;
+  font-weight: bold;
+}
+
+.modal-fondo {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.modal-detalle {
+  background: white;
+  width: 100%;
+  max-width: 550px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 25px;
+  border-radius: 12px;
+  position: relative;
+}
+
+.modal-detalle img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cerrar-modal {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+}
+.nav-auth {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-auth a {
+  text-decoration: none;
+  font-weight: 600;
+  padding: 12px 18px;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+}
+
+.nav-auth a:first-child {
+  color: #087f75;
+  border: 1px solid #087f75;
+  background: transparent;
+}
+
+.nav-auth a:first-child:hover {
+  background: #087f75;
+  color: white;
+}
+
+.nav-auth a.admin {
+  background: #ed6535;
+  color: white;
+  border: 1px solid #ed6535;
+}
+
+.nav-auth a.admin:hover {
+  background: #cf5128;
+  transform: translateY(-2px);
+}
+/* NAVEGACIÓN POR PÁGINAS - SUCRE TURÍSTICO */
+.navbar .marca-sitio {
+  color: #173d36;
+  font-size: 22px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.navbar .navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.navbar .navbar-links a {
+  color: #173d36;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color .2s ease;
+}
+
+.navbar .navbar-links a:hover,
+.enlace-explorar:hover {
+  color: #e96937;
+}
+
+.enlace-explorar {
+  color: #e96937;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.pagina-catalogo {
+  min-height: 65vh;
+  padding-top: 55px;
+  padding-bottom: 65px;
+}
+
+.encabezado-pagina {
+  margin-bottom: 30px;
+  max-width: 780px;
+}
+
+.encabezado-pagina h1,
+.pagina-catalogo .section-heading h1 {
+  margin: 10px 0;
+  color: #173d36;
+  font-size: clamp(28px, 4vw, 40px);
+}
+
+.encabezado-pagina p,
+.pagina-catalogo .section-heading p {
+  color: #687b7b;
+  line-height: 1.6;
+}
+
+.pagina-catalogo .category-card {
+  display: block;
+  min-height: 150px;
+  text-decoration: none;
+}
+
+.buscador-pagina {
+  max-width: 850px;
+  margin: 25px 0 35px;
+}
+
+@media (max-width: 800px) {
+  .navbar .navbar-links {
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 550px) {
+  .navbar .navbar-links {
+    width: 100%;
+    gap: 12px;
+  }
+
+  .navbar .navbar-links a {
+    font-size: 14px;
+  }
+
+  .pagina-catalogo .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* ======================================
+   NUEVA IDENTIDAD VISUAL - SUCRE TURÍSTICO
+====================================== */
+
+:root {
+  --verde-principal: #078477;
+  --verde-oscuro: #056b62;
+  --verde-petroleo: #153f43;
+  --fondo-claro: #f3f9f7;
+  --turquesa-suave: #e0f0eb;
+  --texto: #183b40;
+}
+
+body {
+  background: var(--fondo-claro);
+  color: var(--texto);
+}
+
+/* Barra de navegación */
+.navbar {
+  background: #ffffff;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+}
+
+.navbar .marca-sitio,
+.navbar .navbar-links a {
+  color: var(--verde-petroleo);
+}
+
+.navbar .navbar-links a:hover {
+  color: var(--verde-principal);
+}
+
+/* Botones */
+.admin,
+.search button,
+.nav-auth a.admin {
+  background: var(--verde-principal);
+  border-color: var(--verde-principal);
+  color: white;
+}
+
+.admin:hover,
+.search button:hover,
+.nav-auth a.admin:hover {
+  background: var(--verde-oscuro);
+  border-color: var(--verde-oscuro);
+}
+
+/* Inicio */
+.hero {
+  background: linear-gradient(120deg, #e4f2ed, #f3f9f7);
+}
+
+.hero h1 {
+  color: var(--verde-petroleo);
+}
+
+.hero p {
+  color: #607b7b;
+}
+
+.hero img {
+  box-shadow: 0 12px 30px rgba(21, 63, 67, 0.12);
+}
+
+/* Buscador */
+.search input {
+  border: 1px solid #d5e5e1;
+  border-radius: 8px 0 0 8px;
+}
+
+.search button {
+  border-radius: 0 8px 8px 0;
+}
+
+/* Secciones */
+.section {
+  background: #f3f9f7;
+}
+
+.categories {
+  background: var(--turquesa-suave);
+}
+
+.section h2,
+.section-heading h2 {
+  color: var(--verde-petroleo);
+}
+
+/* Tarjetas */
+.card,
+.category-card {
+  background: white;
+  border: 1px solid #e4eeea;
+  border-radius: 13px;
+  box-shadow: 0 5px 18px rgba(21, 63, 67, 0.07);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover,
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(21, 63, 67, 0.12);
+}
+
+.category-card {
+  color: var(--verde-petroleo);
+}
+
+.category-card span,
+.tag,
+.enlace-explorar {
+  color: var(--verde-principal);
+}
+
+/* Catálogos */
+.pagina-catalogo {
+  background: var(--fondo-claro);
+}
+
+.encabezado-pagina h1,
+.pagina-catalogo .section-heading h1 {
+  color: var(--verde-petroleo);
+}
+
+/* Botones de sección */
+.section-heading button {
+  background: var(--verde-principal);
+}
+
+.section-heading button:hover {
+  background: var(--verde-oscuro);
+}
+
+/* Ventana de detalles */
+.modal-detalle {
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.cerrar-modal {
+  color: var(--verde-petroleo);
+}
+
+/* Pie de página */
+footer {
+  background: var(--verde-petroleo);
+  color: white;
+}
