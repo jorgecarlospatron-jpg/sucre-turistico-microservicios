@@ -20,7 +20,6 @@ const db = mysql.createPool({
   connectionLimit: 10,
   queueLimit: 0
 });
-
 async function probarConexion() {
     try {
         const conexion = await db.getConnection();
