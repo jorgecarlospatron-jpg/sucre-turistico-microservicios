@@ -1,0 +1,41 @@
+/* Golfo Sucre: capa visual compartida para los tres roles. No altera lógica. */
+.dashboard, .admin-layout { --gs-ink:#123d42; --gs-teal:#087f79; --gs-deep:#103d43; --gs-mint:#e5f5f1; --gs-border:#dcebe7; --gs-shadow:0 12px 32px rgba(12,59,60,.08); background:#f3f8f7 !important; color:var(--gs-ink); }
+.dashboard-sidebar, .admin-sidebar { background:linear-gradient(165deg,#103d43,#075c5a) !important; border-right:1px solid rgba(255,255,255,.12); box-shadow:5px 0 30px rgba(8,50,52,.08); }
+.dashboard-sidebar h2, .admin-sidebar h2 { color:#fff; letter-spacing:-.035em; }
+.dashboard-sidebar nav a, .admin-sidebar .admin-nav { border-radius:12px !important; padding:13px 16px !important; font-weight:650; transition:background .2s,transform .2s !important; }
+.dashboard-sidebar nav a:hover, .admin-sidebar .admin-nav:hover { background:rgba(255,255,255,.13) !important; transform:translateX(3px); }
+.admin-sidebar .admin-nav.activo { background:#e0f6f0 !important; color:#075b58 !important; box-shadow:0 4px 14px rgba(0,0,0,.08); }
+.dashboard-main, .admin-main { background:#f3f8f7 !important; }
+.dashboard-header, .admin-header { border-bottom:1px solid var(--gs-border); padding-bottom:22px; margin-bottom:28px; }
+.dashboard-header h1, .admin-header h1 { color:var(--gs-ink); letter-spacing:-.04em; }
+.dashboard-welcome { border-radius:22px !important; overflow:hidden; box-shadow:var(--gs-shadow); }
+.dashboard .card, .dashboard-stats article, .dashboard .profile-card, .dashboard .form-habitacion, .admin-form-card, .admin-table-card, .admin-review-card { border:1px solid var(--gs-border) !important; border-radius:18px !important; box-shadow:var(--gs-shadow) !important; }
+.dashboard .card:hover, .admin-review-card:hover { box-shadow:0 18px 38px rgba(12,59,60,.13) !important; }
+.dashboard .tag { background:var(--gs-mint) !important; color:#08736d !important; }
+.dashboard button, .admin-layout button { font-family:inherit; font-size:14px; font-weight:700; line-height:1.3; min-height:40px; border-radius:11px; transition:transform .18s,background .18s,box-shadow .18s; }
+.dashboard button:not(:disabled):hover, .admin-layout button:not(:disabled):hover { transform:translateY(-1px); }
+.dashboard button:disabled, .admin-layout button:disabled { opacity:.55; cursor:not-allowed; }
+.dashboard button:focus-visible, .admin-layout button:focus-visible, .admin-layout input:focus-visible, .admin-layout select:focus-visible, .admin-layout textarea:focus-visible { outline:3px solid #8bdfd4 !important; outline-offset:2px; }
+.dashboard button.admin, .dashboard .dashboard-section button.admin, .propietario-dashboard button.admin, .propietario-dashboard .dashboard-section button, .admin-layout .admin-save, .admin-layout .admin-approve { background:#087f79 !important; color:white !important; border:1px solid #087f79 !important; border-radius:11px !important; padding:11px 17px !important; box-shadow:0 4px 12px rgba(8,127,121,.15); }
+.dashboard button.admin:hover, .propietario-dashboard .dashboard-section button:hover, .admin-layout .admin-save:hover, .admin-layout .admin-approve:hover { background:#05645f !important; border-color:#05645f !important; }
+.dashboard-sidebar > button, .turista-dashboard .dashboard-sidebar button { background:rgba(255,255,255,.1) !important; color:#fff !important; border:1px solid rgba(255,255,255,.25) !important; padding:11px 15px !important; }
+.dashboard-sidebar > button:hover, .turista-dashboard .dashboard-sidebar button:hover { background:rgba(255,255,255,.2) !important; }
+.admin-layout .admin-row-actions, .admin-layout .admin-review-actions, .admin-layout .admin-actions { gap:10px; flex-wrap:wrap; }
+.admin-layout .admin-row-actions button:first-child { background:#e6f4f1; color:#076e67; border:1px solid #c5e5df; }
+.admin-layout .admin-row-actions button:last-child, .admin-layout .admin-reject { background:#fff0ef !important; color:#b93832 !important; border:1px solid #f4c9c5 !important; }
+.admin-layout .admin-row-actions button:hover, .admin-layout .admin-reject:hover { filter:brightness(.97); }
+.admin-layout .admin-section-title button:not(.admin-save), .admin-layout .admin-actions button:not(.admin-save) { background:#e7f3f0; color:#075e59; border:1px solid #cce7e0; }
+.admin-layout .admin-fields input, .admin-layout .admin-fields textarea, .admin-layout .admin-fields select, .dashboard input, .dashboard textarea, .dashboard select { border-radius:11px !important; border:1px solid #d2e4df !important; background:#fff; }
+.admin-layout .admin-fields input:focus, .admin-layout .admin-fields textarea:focus, .admin-layout .admin-fields select:focus { outline:none; border-color:#087f79 !important; box-shadow:0 0 0 3px rgba(8,127,121,.12); }
+.admin-layout .admin-count { background:var(--gs-mint); color:#076b65; font-weight:750; }
+.admin-layout .admin-table-card th { background:#f3f9f7; color:#416460; }
+.admin-layout .admin-table-card tbody tr:hover { background:#f6fbf9; }
+.admin-layout .admin-review-modal { border-radius:20px; }
+@media(max-width:750px){ .admin-main { padding:20px !important; } .admin-sidebar { box-sizing:border-box; } .admin-sidebar nav { gap:7px; } .dashboard-header,.admin-header { flex-wrap:wrap; } }
+@media(prefers-reduced-motion:reduce){ .dashboard *, .admin-layout * { transition:none !important; } }
+
+/* Botones uniformes en Mis alojamientos */
+.propietario-dashboard .acciones-establecimiento {display:grid;grid-template-columns:1fr;gap:10px;margin-top:16px;width:100%;}
+.propietario-dashboard .acciones-establecimiento button,
+.propietario-dashboard .acciones-establecimiento + button {width:100%;max-width:100%;min-height:44px;box-sizing:border-box;display:flex;align-items:center;justify-content:center;text-align:center;white-space:normal;margin:0;}
+.propietario-dashboard .acciones-establecimiento + button {margin-top:10px;}

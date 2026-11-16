@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { obtenerToken } from "../services/authService";
 import "./Dashboard.css";
+import "./PanelRefresh.css";
 
 const API = import.meta.env.VITE_API_URL || "http://localhost:3000";
 

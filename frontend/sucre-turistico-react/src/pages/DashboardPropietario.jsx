@@ -9,6 +9,7 @@ import { useAuth } from "../context/AuthContext";
 import { obtenerToken } from "../services/authService";
 
 import "./Dashboard.css";
+import "./PanelRefresh.css";
 
 
 
@@ -1800,17 +1801,7 @@ async function guardarEstablecimiento(e) {
 
 
 
-                  <div style={{
-
-                    display: "flex",
-
-                    gap: "10px",
-
-                    flexWrap: "wrap",
-
-                    marginTop: "12px"
-
-                  }}>
+                  <div className="acciones-establecimiento">
 
                     <button
 

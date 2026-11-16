@@ -125,3 +125,20 @@
     padding: 26px 21px;
   }
 }
+
+/* Identidad visual Golfo Sucre — acceso y registro */
+.auth-page { padding:64px 20px; background:linear-gradient(115deg,rgba(5,45,53,.84),rgba(7,105,103,.45)),url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1800&q=85') center/cover fixed; }
+.auth-card { max-width:470px; border-radius:24px; padding:44px; border:1px solid rgba(255,255,255,.75); box-shadow:0 25px 75px rgba(0,31,38,.27); }
+.auth-brand { color:#087f79; letter-spacing:-.04em; font-size:23px; }
+.auth-card h1 { font-family:Georgia,serif; font-size:clamp(29px,3vw,37px); letter-spacing:-.045em; line-height:1.14; }
+.auth-card > p { font-size:15px; line-height:1.65; }
+.auth-card form { gap:11px; }
+.auth-card label { font-size:13px; color:#254c4e; }
+.auth-card input, .auth-card select { border:1px solid #d3e5e1; border-radius:12px; padding:14px 15px; background:#f9fcfb; color:#123d42; }
+.auth-card input:focus, .auth-card select:focus { outline:0; border-color:#087f79; box-shadow:0 0 0 4px rgba(8,127,121,.13); }
+.auth-card form button { min-height:49px; border-radius:12px; background:#087f79; box-shadow:0 8px 22px rgba(8,127,121,.18); transition:background .2s,transform .2s; }
+.auth-card form button:not(:disabled):hover { background:#05645f; transform:translateY(-2px); }
+.auth-card form button:focus-visible, .auth-card a:focus-visible { outline:3px solid #77d9cf; outline-offset:3px; }
+.auth-bottom { padding-top:18px; border-top:1px solid #e5efec; }
+.auth-back { margin-top:18px; }
+@media(max-width:480px){ .auth-card { padding:30px 23px; } .auth-page { padding:22px 12px; } }
